@@ -112,10 +112,10 @@ UpdateService::Task()
 {
 	assert(walk != nullptr);
 
-	if (!next.path_utf8.empty())
-		FormatDebug(update_domain, "starting: %s",
-			    next.path_utf8.c_str());
-	else
+	// if (!next.path_utf8.empty())
+	// 	FormatDebug(update_domain, "starting: %s",
+	// 		    next.path_utf8.c_str());
+	// else
 		LogDebug(update_domain, "starting");
 
 	SetThreadIdlePriority();
@@ -131,10 +131,10 @@ UpdateService::Task()
 		}
 	}
 
-	if (!next.path_utf8.empty())
-		FormatDebug(update_domain, "finished: %s",
-			    next.path_utf8.c_str());
-	else
+	// if (!next.path_utf8.empty())
+	// 	FormatDebug(update_domain, "finished: %s",
+	// 		    next.path_utf8.c_str());
+	// else
 		LogDebug(update_domain, "finished");
 
 	DeferredMonitor::Schedule();
@@ -160,8 +160,8 @@ UpdateService::StartThread(UpdateQueueItem &&i)
 
 	update_thread.Start(Task, this);
 
-	FormatDebug(update_domain,
-		    "spawned thread for update job id %i", next.id);
+	// FormatDebug(update_domain,
+	// 	    "spawned thread for update job id %i", next.id);
 }
 
 unsigned
