@@ -38,9 +38,9 @@ client_process_command_list(Client &client, bool list_ok,
 	for (auto &&i : list) {
 		char *cmd = &*i.begin();
 
-		FormatDebug(client_domain, "process command \"%s\"", cmd);
+		// FormatDebug(client_domain, "process command \"%s\"", cmd);
 		ret = command_process(client, num++, cmd);
-		FormatDebug(client_domain, "command returned %i", int(ret));
+		// FormatDebug(client_domain, "command returned %i", int(ret));
 		if (ret != CommandResult::OK || client.IsExpired())
 			break;
 		else if (list_ok)
@@ -78,18 +78,18 @@ client_process_line(Client &client, char *line)
 
 	if (client.cmd_list.IsActive()) {
 		if (StringIsEqual(line, CLIENT_LIST_MODE_END)) {
-			FormatDebug(client_domain,
-				    "[%u] process command list",
-				    client.num);
+			// FormatDebug(client_domain,
+			// 	    "[%u] process command list",
+			// 	    client.num);
 
 			auto &&cmd_list = client.cmd_list.Commit();
 
 			ret = client_process_command_list(client,
 							  client.cmd_list.IsOKMode(),
 							  std::move(cmd_list));
-			FormatDebug(client_domain,
-				    "[%u] process command "
-				    "list returned %i", client.num, int(ret));
+			// FormatDebug(client_domain,
+			// 	    "[%u] process command "
+			// 	    "list returned %i", client.num, int(ret));
 
 			if (ret == CommandResult::CLOSE ||
 			    client.IsExpired())
@@ -119,13 +119,13 @@ client_process_line(Client &client, char *line)
 			client.cmd_list.Begin(true);
 			ret = CommandResult::OK;
 		} else {
-			FormatDebug(client_domain,
-				    "[%u] process command \"%s\"",
-				    client.num, line);
+			// FormatDebug(client_domain,
+			// 	    "[%u] process command \"%s\"",
+			// 	    client.num, line);
 			ret = command_process(client, 0, line);
-			FormatDebug(client_domain,
-				    "[%u] command returned %i",
-				    client.num, int(ret));
+			// FormatDebug(client_domain,
+			// 	    "[%u] command returned %i",
+			// 	    client.num, int(ret));
 
 			if (ret == CommandResult::CLOSE ||
 			    client.IsExpired())
