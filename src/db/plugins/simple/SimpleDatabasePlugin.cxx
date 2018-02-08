@@ -151,7 +151,7 @@ SimpleDatabase::Load()
 
 	TextFile file(path);
 
-	LogDebug(simple_db_domain, "reading DB");
+	// LogDebug(simple_db_domain, "reading DB");
 
 	db_load_internal(file, *root);
 
@@ -332,14 +332,14 @@ SimpleDatabase::Save()
 	{
 		const ScopeDatabaseLock protect;
 
-		LogDebug(simple_db_domain, "removing empty directories from DB");
+		// LogDebug(simple_db_domain, "removing empty directories from DB");
 		root->PruneEmpty();
 
-		LogDebug(simple_db_domain, "sorting DB");
+		// LogDebug(simple_db_domain, "sorting DB");
 		root->Sort();
 	}
 
-	LogDebug(simple_db_domain, "writing DB");
+	// LogDebug(simple_db_domain, "writing DB");
 
 	FileOutputStream fos(path);
 

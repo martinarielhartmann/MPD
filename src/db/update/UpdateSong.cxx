@@ -61,8 +61,8 @@ UpdateWalk::UpdateSongFile2(Directory &directory,
 	}
 
 	if (song == nullptr) {
-		FormatDebug(update_domain, "reading %s/%s",
-			    directory.GetPath(), name);
+		// FormatDebug(update_domain, "reading %s/%s",
+		// 	    directory.GetPath(), name);
 		song = Song::LoadFile(storage, name, directory);
 		if (song == nullptr) {
 			FormatDebug(update_domain,
@@ -77,15 +77,15 @@ UpdateWalk::UpdateSongFile2(Directory &directory,
 		}
 
 		modified = true;
-		FormatDefault(update_domain, "added %s/%s",
-			      directory.GetPath(), name);
+		// FormatDefault(update_domain, "added %s/%s",
+		// 	      directory.GetPath(), name);
 	} else if (info.mtime != song->mtime || walk_discard) {
-		FormatDefault(update_domain, "updating %s/%s",
-			      directory.GetPath(), name);
+		// FormatDefault(update_domain, "updating %s/%s",
+		// 	      directory.GetPath(), name);
 		if (!song->UpdateFile(storage)) {
-			FormatDebug(update_domain,
-				    "deleting unrecognized file %s/%s",
-				    directory.GetPath(), name);
+			// FormatDebug(update_domain,
+			// 	    "deleting unrecognized file %s/%s",
+			// 	    directory.GetPath(), name);
 			editor.LockDeleteSong(directory, song);
 		}
 

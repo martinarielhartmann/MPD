@@ -37,7 +37,7 @@ playlist::Stop(PlayerControl &pc)
 
 	assert(current >= 0);
 
-	FormatDebug(playlist_domain, "stop");
+	// FormatDebug(playlist_domain, "stop");
 	pc.LockStop();
 	queued = -1;
 	playing = false;
