@@ -652,12 +652,12 @@ FfmpegDecode(DecoderClient &client, InputStream &input,
 	const AVCodecDescriptor *codec_descriptor =
 		avcodec_descriptor_get(codec_params.codec_id);
 	if (codec_descriptor != nullptr)
-		FormatDebug(ffmpeg_domain, "codec '%s'",
-			    codec_descriptor->name);
+		// FormatDebug(ffmpeg_domain, "codec '%s'",
+		// 	    codec_descriptor->name);
 #else
 	if (codec_context->codec_name[0] != 0)
-		FormatDebug(ffmpeg_domain, "codec '%s'",
-			    codec_context->codec_name);
+		// FormatDebug(ffmpeg_domain, "codec '%s'",
+		// 	    codec_context->codec_name);
 #endif
 
 	AVCodec *codec = avcodec_find_decoder(codec_params.codec_id);
