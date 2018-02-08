@@ -174,10 +174,10 @@ AudioOutput::OpenOutputAndConvert(AudioFormat desired_audio_format)
 							  name, plugin.name));
 	}
 
-	FormatDebug(output_domain,
-		    "opened plugin=%s name=\"%s\" audio_format=%s",
-		    plugin.name, name,
-		    ToString(out_audio_format).c_str());
+	// FormatDebug(output_domain,
+	// 	    "opened plugin=%s name=\"%s\" audio_format=%s",
+	// 	    plugin.name, name,
+	// 	    ToString(out_audio_format).c_str());
 
 	try {
 		convert_filter_set(convert_filter.Get(), out_audio_format);
@@ -216,8 +216,8 @@ AudioOutput::Close(bool drain)
 	CloseOutput(drain);
 	CloseFilter();
 
-	FormatDebug(output_domain, "closed plugin=%s name=\"%s\"",
-		    plugin.name, name);
+	// FormatDebug(output_domain, "closed plugin=%s name=\"%s\"",
+	// 	    plugin.name, name);
 }
 
 inline void
