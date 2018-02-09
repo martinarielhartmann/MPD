@@ -285,11 +285,11 @@ spl_clear(const char *utf8path)
 	try {
 		TruncateFile(path_fs);
 	} catch (const std::system_error &e) {
-		if (IsFileNotFound(e))
-			throw PlaylistError(PlaylistResult::NO_SUCH_LIST,
-					    "No such playlist");
-		else
-			throw;
+		// if (IsFileNotFound(e))
+		// 	throw PlaylistError(PlaylistResult::NO_SUCH_LIST,
+		// 			    "No such playlist");
+		// else
+		// 	throw;
 	}
 
 	idle_add(IDLE_STORED_PLAYLIST);
@@ -304,11 +304,11 @@ spl_delete(const char *name_utf8)
 	try {
 		RemoveFile(path_fs);
 	} catch (const std::system_error &e) {
-		if (IsFileNotFound(e))
-			throw PlaylistError(PlaylistResult::NO_SUCH_LIST,
-					    "No such playlist");
-		else
-			throw;
+		// if (IsFileNotFound(e))
+		// 	throw PlaylistError(PlaylistResult::NO_SUCH_LIST,
+		// 			    "No such playlist");
+		// else
+		// 	throw;
 	}
 
 	idle_add(IDLE_STORED_PLAYLIST);
