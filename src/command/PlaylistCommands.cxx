@@ -86,7 +86,7 @@ handle_listplaylist(Client &client, Request args, Response &r)
 				 name, false))
 		return CommandResult::OK;
 
-	throw PlaylistError::NoSuchList();
+	// throw PlaylistError::NoSuchList();
 }
 
 CommandResult
@@ -98,7 +98,7 @@ handle_listplaylistinfo(Client &client, Request args, Response &r)
 				name, true))
 		return CommandResult::OK;
 
-	throw PlaylistError::NoSuchList();
+	// throw PlaylistError::NoSuchList();
 }
 
 CommandResult

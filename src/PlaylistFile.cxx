@@ -246,9 +246,9 @@ try {
 
 	return contents;
 } catch (const std::system_error &e) {
-	if (IsFileNotFound(e))
-		throw PlaylistError::NoSuchList();
-	throw;
+	// if (IsFileNotFound(e))
+	// 	throw PlaylistError::NoSuchList();
+	// throw;
 }
 
 void
@@ -349,9 +349,9 @@ try {
 
 	idle_add(IDLE_STORED_PLAYLIST);
 } catch (const std::system_error &e) {
-	if (IsFileNotFound(e))
-		throw PlaylistError::NoSuchList();
-	throw;
+	// if (IsFileNotFound(e))
+	// 	throw PlaylistError::NoSuchList();
+	// throw;
 }
 
 void

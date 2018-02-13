@@ -77,8 +77,8 @@ playlist_open_into_queue(const char *uri,
 								   loader.GetStorage(),
 #endif
 								   mutex, cond));
-	if (playlist == nullptr)
-		throw PlaylistError::NoSuchList();
+	// if (playlist == nullptr)
+	// 	throw PlaylistError::NoSuchList();
 
 	playlist_load_into_queue(uri, *playlist,
 				 start_index, end_index,
